@@ -56,6 +56,6 @@ fn solve<const N: usize>(data: &[Vec<u64>]) -> u64 {
 fn main() {
 		let lines = parse_input();
 		println!("Part 1: {}", part_1(&lines));
-		println!("Part 1 (with part 2 function): {}", solve::<2>(&lines));
+		// println!("Part 1 (with part 2 function): {}", solve::<2>(&lines));
 		println!("Part 2: {}", solve::<12>(&lines));
 }

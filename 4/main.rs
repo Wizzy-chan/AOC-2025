@@ -57,7 +57,6 @@ fn part_2(mut rolls: Vec<Vec<bool>>) -> usize {
 
 fn main() {
 		let rolls = parse_input();
-		println!("{}", count_rolls(&rolls));
-		println!("{}", part_1(&rolls));
-		println!("{}", part_2(rolls));
+		println!("Part 1: {}", part_1(&rolls));
+		println!("Part 2: {}", part_2(rolls));
 }

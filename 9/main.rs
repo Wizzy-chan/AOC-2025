@@ -92,6 +92,6 @@ fn part_2(tiles: &[Tile]) -> usize {
 
 fn main() {
 		let tiles = parse_input();
-		println!("{}", part_1(&tiles));
-		println!("{}", part_2(&tiles));
+		println!("Part 1: {}", part_1(&tiles));
+		println!("Part 2: {}", part_2(&tiles));
 }

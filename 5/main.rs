@@ -58,6 +58,6 @@ fn part_2(ranges: &[Range]) -> usize {
 
 fn main() {
 		let (ranges, ids) = parse_input();
-		println!("{}", part_1(&ranges, &ids));
-		println!("{}", part_2(&ranges));
+		println!("Part 1: {}", part_1(&ranges, &ids));
+		println!("Part 2: {}", part_2(&ranges));
 }

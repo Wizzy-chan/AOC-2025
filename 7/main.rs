@@ -65,6 +65,6 @@ fn part_2(manifold: Vec<Vec<Cell>>) -> usize {
 
 fn main() {
 		let manifold = parse_input();
-		println!("{}", part_1(manifold.clone()));
-		println!("{}", part_2(manifold.clone()));
+		println!("Part 1: {}", part_1(manifold.clone()));
+		println!("Part 2: {}", part_2(manifold.clone()));
 }

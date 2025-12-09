@@ -61,6 +61,6 @@ fn part_2(problems: &[Problem]) -> usize {
 
 fn main() {
 		let problems = parse_input();
-		println!("{}", part_1(&problems));
-		println!("{}", part_2(&problems));
+		println!("Part 1: {}", part_1(&problems));
+		println!("Part 2: {}", part_2(&problems));
 }
