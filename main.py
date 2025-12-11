@@ -1,6 +1,7 @@
 import requests
 import os
 from pathlib import Path
+import time
 
 def get_input(day):
     input_path = (Path('.') / str(day) / 'input.txt')
@@ -20,11 +21,16 @@ def get_input(day):
         input_path.write_text(r.text)
     return True
 
-def run_day(day):
+def run_day(day, optimisation):
     if get_input(day):
         print(f"Day {day}:")
-        os.system(f'cd {day} && rustc -o main main.rs && ./main')
+        os.system(f'cd {day} && rustc {"-O" if optimisation else ""} -o main main.rs')
+        start = time.perf_counter()
+        os.system(f'cd {day} && ./main')
+        time_taken = time.perf_counter() - start
+        print(f"Took {time_taken:.3f}s to solve day {day}")
     
     
-for i in range(1, 10):
-    run_day(i)
+for i in range(1, 12):
+    if i == 10: continue
+    run_day(i, True)
