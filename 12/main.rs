@@ -17,5 +17,5 @@ fn main() {
 						let presents_size = presents.iter().enumerate().map(|(i, presents)| present_sizes[i] * presents).sum();
 						region_size >= presents_size })
 				.count();
-		println!("{}", regions)
+		println!("Part 1: {}", regions)
 }

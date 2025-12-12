@@ -3,8 +3,15 @@ import os
 from pathlib import Path
 import time
 
+try:
+    import z3
+    Z3_AVAILABLE = True
+except ModuleNotFoundError:
+    Z3_AVAILABLE = False
+
+
 def get_input(day):
-    input_path = (Path('.') / str(day) / 'input.txt')
+    input_path = (Path('.') / f"{day:02}/input.txt")
     if not input_path.exists():
         print(f"Do not already have the input file for day {day}, fetching...")
         if 'SESSION_COOKIE' not in os.environ:
@@ -23,12 +30,15 @@ def get_input(day):
 
 def run_day(day, optimisation):
     if get_input(day):
-        print(f"Day {day}:")
-        os.system(f'cd {day} && rustc {"-O" if optimisation else ""} -o main main.rs')
+        print(f"Day {day:02}:")
+        os.system(f'cd {day:02} && rustc {"-O" if optimisation else ""} -o main main.rs')
         start = time.perf_counter()
-        os.system(f'cd {day} && ./main')
+        os.system(f'cd {day:02} && ./main')
         if day == 10:
-            os.system(f'cd {day} && python3 main.py')
+            if Z3_AVAILABLE:
+                os.system(f'cd 10 && python3 main.py')
+            else:
+                print(f"Day 10's solution to part 2 requires the z3-solver module, skipping...")
         time_taken = time.perf_counter() - start
         print(f"Took {time_taken:.3f}s to solve day {day}")
     
