@@ -27,10 +27,11 @@ def run_day(day, optimisation):
         os.system(f'cd {day} && rustc {"-O" if optimisation else ""} -o main main.rs')
         start = time.perf_counter()
         os.system(f'cd {day} && ./main')
+        if day == 10:
+            os.system(f'cd {day} && python3 main.py')
         time_taken = time.perf_counter() - start
         print(f"Took {time_taken:.3f}s to solve day {day}")
     
     
-    if i == 10: continue
 for i in range(1, 13):
     run_day(i, True)
