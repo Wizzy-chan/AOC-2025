@@ -1,5 +1,4 @@
-import re 
-from z3 import Int, Solver, Not, And, sat, Sum
+from z3 import Int, Solver, sat, Sum
 
 def parse_input():
     with open("input.txt") as f:
