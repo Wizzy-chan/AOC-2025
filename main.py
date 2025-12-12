@@ -31,6 +31,6 @@ def run_day(day, optimisation):
         print(f"Took {time_taken:.3f}s to solve day {day}")
     
     
-for i in range(1, 12):
     if i == 10: continue
+for i in range(1, 13):
     run_day(i, True)
